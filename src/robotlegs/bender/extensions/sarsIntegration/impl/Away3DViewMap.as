@@ -14,34 +14,34 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 	
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
 	import robotlegs.bender.extensions.sarsIntegration.api.IAway3DViewMap;
-
+	
+	/**
+	 * The <code>Away3DViewMap</code> class performs managing Away3D scene and 
+	 * views automatic mediation. When view is added or removed from scene, it will
+	 * automatically create or destroy its mediator.
+	 */	
 	public class Away3DViewMap implements IAway3DViewMap	
 	{
 		/*============================================================================*/
-		/* Private Properties                                                         */
+		/* Public Properties                                                         */
 		/*============================================================================*/
 		
 		[Inject]
+		/** Instance of View3D which contains scene receiving display objects. **/
 		public var view3D:View3D;
 		
 		[Inject]
+		/** Map for mediating views. **/
 		public var mediatorMap : IMediatorMap;
-
-		/*============================================================================*/
-		/* Private Properties                                                         */
-		/*============================================================================*/
-		
 		
 		/*============================================================================*/
 		/* Constructor
 		/*============================================================================*/
-		
-		public function Away3DViewMap()
-		{
-			
-		}
 
 		[PostConstruct]
+		/**
+		 * Initialize listeners on Away3D scene.
+		 */		
 		public function init() : void
 		{
 			// listen for ObjectContainer3D events
@@ -58,6 +58,7 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 		/* Public Methods
 		/*============================================================================*/
 		
+		/** @inheritDoc **/
 		public function addAway3DView(view : *) : void
 		{
 			if( validateView(view))
@@ -68,6 +69,7 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 				throw new Error("Not sure what to do with this view type..");
 		}
 
+		/** @inheritDoc **/
 		public function removeAway3DView(view : *) : void
 		{
 			mediatorMap.unmediate(view);
@@ -77,7 +79,16 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 		/* Private Methods
 		/*============================================================================*/
 		
-		/** We want to mediate ObjectContainer3D and Scene3D, and Scene3D doesn't extend ObjectContainer3D - this method will validate a view type for now **/
+		/**
+		 * Validate if view added on scene is of type either <code>Scene3D</code> or 
+		 * <code>ObjectContainer3D</code>, and this is required since <code>Scene3D</code> 
+		 * doesn't extend <code>ObjectContainer3D</code>.
+		 * 
+		 * @param view View that needs to be validated.
+		 * 
+		 * @return Returns <code>true</code> if view is of valid type, or <code>false</code>
+		 * otherwise.
+		 */		
 		private function validateView(view:*):Boolean
 		{
 			if( view is Scene3D || view is ObjectContainer3D ){
@@ -86,11 +97,21 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 				return false;
 		}
 		
+		/**
+		 * Handle view added to scene.
+		 * 
+		 * @param event View added to scene.
+		 */	
 		private function onSceneAdded(event : Scene3DEvent) : void
 		{
 			addAway3DView(event.objectContainer3D);
 		}
-
+		
+		/**
+		 * Handle view removed from scene.
+		 * 
+		 * @param event View removed from scene.
+		 */	
 		private function onSceneRemoved(event : Scene3DEvent) : void
 		{
 			removeAway3DView(event.objectContainer3D);

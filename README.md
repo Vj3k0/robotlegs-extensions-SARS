@@ -7,6 +7,8 @@ SARS is short for:
 - **R** obotlegs 2
 - **S** ignalCommandMap extension
 
+## TODO
+- Write unit tests for extensions
 
 ## Libraries
 Libraries required for this extension are:
@@ -20,4 +22,4 @@ Libraries required for this extension are:
 ## Credits
 Contains parts of code from [robotlegs2-starling-viewmap](https://github.com/jamieowen/robotlegs2-starling-viewmap) and [robotlegs2-away3d-viewmap](https://github.com/jamieowen/robotlegs2-away3d-viewmap).
 
-Extended by [Vjekoslav Ratkajec](https://github.com/Vj3k0).
+Created by [Vjekoslav Ratkajec](https://github.com/Vj3k0).

@@ -14,6 +14,7 @@ package robotlegs.bender.extensions.sarsStageSync
 	
 	import org.hamcrest.object.instanceOf;
 	
+	import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.IExtension;
 	import robotlegs.bender.framework.api.ILogger;
@@ -24,7 +25,9 @@ package robotlegs.bender.extensions.sarsStageSync
 
 	/**
 	 * <p>This Extension waits for a DisplayObjectContainer to be added as a configuration,
-	 * and initializes and destroys the context based on that container's stage presence.</p>
+	 * and all Starling view instances defined to be initialized. When all of them are ready,
+	 * context is initialized. On the other hand losing reference to stage will destroy 
+	 * context.</p>
 	 *
 	 * <p>It should be installed before context initialization.</p>
 	 */
@@ -35,24 +38,32 @@ package robotlegs.bender.extensions.sarsStageSync
 		/* Private Properties                                                         */
 		/*============================================================================*/
 
+		/** Extension UID. **/
 		private const _uid:String = UID.create(SARSStageSyncExtension);
 
+		/** Context being initialized. **/
 		private var _context:IContext;
 
+		/** Reference to regular view in Flash display list. **/
 		private var _contextView:flash.display.DisplayObjectContainer;
 		
-		private var _starling:Starling;
-
+		/** Logger used to log messaged when using this extension. **/
 		private var _logger:ILogger;
 		
+		/** Boolean indicating if context view is on stage. **/
 		private var _contextReady:Boolean;
 		
-		private var _starlingReady:Boolean;
+		/** Collection of Starling view instances. **/
+		private var _starlingCollection:StarlingCollection;
+		
+		/** Number of Starling instances which are not initialized. **/
+		private var _numStarlingsInQueue:int = 0;
 		
 		/*============================================================================*/
 		/* Public Functions                                                           */
 		/*============================================================================*/
 
+		/** @inheritDoc **/
 		public function extend(context:IContext):void
 		{
 			_context = context;
@@ -61,10 +72,13 @@ package robotlegs.bender.extensions.sarsStageSync
 				instanceOf(flash.display.DisplayObjectContainer),
 				handleContextView);
 			_context.addConfigHandler(
-				instanceOf(Starling),
-				handleStarlingContextView);
+				instanceOf(StarlingCollection),
+				handleStarlingCollection);
 		}
 
+		/**
+		 * Returns the string representation of the specified object.
+		 */		
 		public function toString():String
 		{
 			return _uid;
@@ -74,6 +88,11 @@ package robotlegs.bender.extensions.sarsStageSync
 		/* Private Functions                                                          */
 		/*============================================================================*/
 
+		/**
+		 * Initialize context view. 
+		 * 
+		 * @param view View being set as context view.
+		 */		
 		private function handleContextView(view:flash.display.DisplayObjectContainer):void
 		{
 			// ignore Away3D view
@@ -98,6 +117,11 @@ package robotlegs.bender.extensions.sarsStageSync
 			}
 		}
 		
+		/**
+		 * Context view is ready so try to initialize context.
+		 * 
+		 * @param event View has been added to stage.
+		 */		
 		private function onAddedToStage(event:flash.events.Event):void
 		{
 			_logger.debug("Context view added on stage.");
@@ -108,6 +132,11 @@ package robotlegs.bender.extensions.sarsStageSync
 			initializeContext();
 		}
 
+		/**
+		 * Context view doesn't have reference to stage, so destroy the context.
+		 * 
+		 * @param event View has been removed from stage.
+		 */		
 		private function onRemovedFromStage(event:flash.events.Event):void
 		{
 			_logger.debug("Context view has left the stage. Destroying context...");
@@ -119,17 +148,38 @@ package robotlegs.bender.extensions.sarsStageSync
 		// Handling Starling
 		//---------------------------------------------------------------
 		
+		/**
+		 * Initialize all Starling view instances in collection.
+		 * 
+		 * @param collection Collection of Starling view instances used in context.
+		 */		
+		private function handleStarlingCollection(collection:StarlingCollection):void
+		{
+			if (_starlingCollection)
+			{
+				_logger.warn('A Starling collection has already been set, ignoring {0}', [collection]);
+			}
+			_starlingCollection = collection;
+			_numStarlingsInQueue = collection.length;
+			
+			var s:Starling;
+			for each (s in _starlingCollection.items) 
+			{
+				handleStarlingContextView(s);
+			}
+			
+		}
+		
+		/**
+		 * Initialize Starling context view.
+		 * 
+		 * @param currentStarling Starling view that needs to be initialized.
+		 * 
+		 */		
 		private function handleStarlingContextView(currentStarling:Starling):void
 		{
-			if (_starling)
-			{
-				_logger.warn('A Starling contextView has already been set, ignoring {0}', [currentStarling]);
-				return;
-			}
-			_starling = currentStarling;
 			if (currentStarling.stage.numChildren > 0)
 			{
-				_starlingReady = true;
 				initializeContext();
 			}
 			else
@@ -139,10 +189,16 @@ package robotlegs.bender.extensions.sarsStageSync
 			}
 		}
 		
+		/**
+		 * Context view is ready so try to initialize context.
+		 * 
+		 * @param event Context created for Starling view.
+		 * 
+		 */		
 		private function onContextCreated(event:starling.events.Event):void
 		{
 			_logger.debug("Starling context view added on stage.");
-			_starlingReady = true;
+			_numStarlingsInQueue--;
 			
 			initializeContext();
 		}
@@ -151,10 +207,14 @@ package robotlegs.bender.extensions.sarsStageSync
 		// Initialization
 		//---------------------------------------------------------------
 		
+		/**
+		 * Initialize context if default context view is ready and if
+		 * all Starling view instances have their context prepared.
+		 */		
 		private function initializeContext():void
 		{
-			// if both of the views are not on stage, postpone initialization
-			if (!_contextReady || !_starlingReady)
+			// if all views are not on stage, postpone initialization
+			if (!_contextReady || (_numStarlingsInQueue > 0))
 				return;
 			
 			_logger.debug("Default and Starling context views are now on stage. Initializing context...");

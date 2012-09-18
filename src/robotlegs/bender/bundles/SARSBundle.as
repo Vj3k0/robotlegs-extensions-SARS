@@ -20,6 +20,13 @@ package robotlegs.bender.bundles
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.LogLevel;
 	
+	/**
+	 * The <code>SARSBundle</code> class will include all extensions which are required
+	 * to create functioning SARS/MVCS application.
+	 * 
+	 * <p><i>Note: Extensions loaded by this bundle are in precise order since some
+	 * extensions require injections which are mapped in other extensions.</i></p>
+	 */	
 	public class SARSBundle implements IBundle
 	{
 		
@@ -27,6 +34,7 @@ package robotlegs.bender.bundles
 		/* Public Functions                                                           */
 		/*============================================================================*/
 
+		/** @inheritDoc **/
 		public function extend(context:IContext):void
 		{
 			context.extend(
