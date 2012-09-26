@@ -9,7 +9,6 @@ SARS is short for:
 
 ## TODO
 - Write unit tests for extensions
-- Add convinience interface which will define methods initialize/destroy and will be implemented by view so that automatically it can call this methods rather than manually defining it
 
 ## Example
 

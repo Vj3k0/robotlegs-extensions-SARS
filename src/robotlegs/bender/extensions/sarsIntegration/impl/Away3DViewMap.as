@@ -14,6 +14,7 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 	
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
 	import robotlegs.bender.extensions.sarsIntegration.api.IAway3DViewMap;
+	import robotlegs.bender.extensions.sarsIntegration.api.IDisplayObject;
 	
 	/**
 	 * The <code>Away3DViewMap</code> class performs managing Away3D scene and 
@@ -63,6 +64,8 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 		{
 			if( validateView(view))
 			{
+				if (view is IDisplayObject)
+					IDisplayObject(view).init();
 				mediatorMap.mediate(view);
 			}
 			else
@@ -72,6 +75,8 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 		/** @inheritDoc **/
 		public function removeAway3DView(view : *) : void
 		{
+			if (view is IDisplayObject)
+				IDisplayObject(view).destroy();
 			mediatorMap.unmediate(view);
 		}
 

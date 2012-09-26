@@ -1,6 +1,7 @@
 package robotlegs.bender.extensions.sarsIntegration.impl
 {
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
+	import robotlegs.bender.extensions.sarsIntegration.api.IDisplayObject;
 	import robotlegs.bender.extensions.sarsIntegration.api.IStarlingViewMap;
 	import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
 	
@@ -57,12 +58,16 @@ package robotlegs.bender.extensions.sarsIntegration.impl
 		/** @inheritDoc **/		
 		public function addStarlingView(view : DisplayObject) : void
 		{
+			if (view is IDisplayObject)
+				IDisplayObject(view).init();
 			mediatorMap.mediate(view);
 		}
 		
 		/** @inheritDoc **/		
 		public function removeStarlingView(view : DisplayObject) : void
 		{
+			if (view is IDisplayObject)
+				IDisplayObject(view).destroy();
 			mediatorMap.unmediate(view);
 		}
 		
