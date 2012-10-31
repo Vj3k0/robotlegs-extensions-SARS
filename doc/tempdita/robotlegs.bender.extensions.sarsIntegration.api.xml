@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="robotlegs.bender.extensions.sarsIntegration.api"><apiName>robotlegs.bender.extensions.sarsIntegration.api</apiName><apiDetail/><apiClassifier id="robotlegs.bender.extensions.sarsIntegration.api:IStarlingViewMap"><apiName>IStarlingViewMap</apiName><shortdesc>
+	 The IStarlingViewMap interface defines methods which will enable
+	 view instance to be added or removed from mediation.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <codeph>IStarlingViewMap</codeph> interface defines methods which will enable
+	 view instance to be added or removed from mediation.
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:IStarlingViewMap:robotlegs.bender.extensions.sarsIntegration.api:IStarlingViewMap:addStarlingView"><apiName>addStarlingView</apiName><shortdesc>
+		 Add view to mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="starling.display:DisplayObject"/><apiDesc>View instance that needs to be mediated.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Add view to mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:IStarlingViewMap:robotlegs.bender.extensions.sarsIntegration.api:IStarlingViewMap:removeStarlingView"><apiName>removeStarlingView</apiName><shortdesc>
+		 Remove view from mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="starling.display:DisplayObject"/><apiDesc>View instance that needs to remove mediation.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Remove view from mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="robotlegs.bender.extensions.sarsIntegration.api:IAway3DViewMap"><apiName>IAway3DViewMap</apiName><shortdesc>
+	 The IAway3DViewMap interface defines methods which will enable
+	 view instance to be added or removed from mediation.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <codeph>IAway3DViewMap</codeph> interface defines methods which will enable
+	 view instance to be added or removed from mediation.
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:IAway3DViewMap:robotlegs.bender.extensions.sarsIntegration.api:IAway3DViewMap:addAway3DView"><apiName>addAway3DView</apiName><shortdesc>
+		 Add view to mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="any"/><apiDesc>View instance that needs to be mediated.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Add view to mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:IAway3DViewMap:robotlegs.bender.extensions.sarsIntegration.api:IAway3DViewMap:removeAway3DView"><apiName>removeAway3DView</apiName><shortdesc>
+		 Remove view from mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="any"/><apiDesc>View instance that needs to remove mediation.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Remove view from mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="robotlegs.bender.extensions.sarsIntegration.api:IDisplayObject"><apiName>IDisplayObject</apiName><shortdesc>
+	 The IDisplayObject interface defines methods which will be 
+	 invoked when object is added to/removed from display list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <codeph>IDisplayObject</codeph> interface defines methods which will be 
+	 invoked when object is added to/removed from display list.
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:IDisplayObject:robotlegs.bender.extensions.sarsIntegration.api:IDisplayObject:destroy"><apiName>destroy</apiName><shortdesc>
+		 Object has been removed from display list so perform disposing.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Object has been removed from display list so perform disposing.
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:IDisplayObject:robotlegs.bender.extensions.sarsIntegration.api:IDisplayObject:init"><apiName>init</apiName><shortdesc>
+		 Object is added on display list so it is safe to begin initialization.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Object is added on display list so it is safe to begin initialization.
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection"><apiName>StarlingCollection</apiName><shortdesc>
+	 The StarlingCollection class represents collection of Starling
+	 instances which will be used in SARS extension.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <codeph>StarlingCollection</codeph> class represents collection of Starling
+	 instances which will be used in SARS extension.
+	 
+	 <p>This class will adds support to have multiple instances of Starling available
+	 in Robotlegs application. All Starling instances when added to collection must
+	 have defined name which will actually be used as named injection of Starling
+	 view.</p>
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection:addItem"><apiName>addItem</apiName><shortdesc>
+		 Add Starling instance to collection.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>Return number of instances in collection.
+		 </apiDesc><apiType value="uint"/></apiReturn><apiParam><apiItemName>starling</apiItemName><apiType value="starling.core:Starling"/><apiDesc>Starling instace to add to collection.
+		 
+		 </apiDesc></apiParam><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>Name by which Starling instance will be remembered.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Add Starling instance to collection.
+		 
+		 <p>Instance will be added to dictionary with key as name provided. When 
+		 using this collection with SARS, Starling views will be mapped to injector
+		 and differentiated by named injection. Name will be exact same as one
+		 provieded when adding instance to this collection.</p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection:getItem"><apiName>getItem</apiName><shortdesc>
+		 Get Starling instance by name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>Returns Starling instance it it was found, or <codeph>null</codeph> 
+		 otherwise.
+		 </apiDesc><apiType value="starling.core:Starling"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>Name provided when Starling instance was added to collection.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Get Starling instance by name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection:removeItem"><apiName>removeItem</apiName><shortdesc>
+		 Remove Starling item from collection by its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>Returns Starling instance which was removed if it is found, or if 
+		 not found by that name, returns <codeph>null</codeph>. 
+		 </apiDesc><apiType value="starling.core:Starling"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>Name by which Starling instance was added to collection.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Remove Starling item from collection by its name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection:items:get"><apiName>items</apiName><shortdesc>
+		 Get Starling instances in collection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="flash.utils:Dictionary"/></apiValueDef><apiDesc>
+		 Get Starling instances in collection.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection:length:get"><apiName>length</apiName><shortdesc>
+		 Number of items in collection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="uint"/></apiValueDef><apiDesc>
+		 Number of items in collection.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>
