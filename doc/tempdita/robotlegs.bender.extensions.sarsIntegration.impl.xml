@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="robotlegs.bender.extensions.sarsIntegration.impl"><apiName>robotlegs.bender.extensions.sarsIntegration.impl</apiName><apiDetail/><apiClassifier id="robotlegs.bender.extensions.sarsIntegration.impl:StarlingViewMap"><apiName>StarlingViewMap</apiName><shortdesc>
+	 The StarlingViewMap class performs managing Starling stage and 
+	 views automatic mediation.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>robotlegs.bender.extensions.sarsIntegration.api:IStarlingViewMap</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <codeph>StarlingViewMap</codeph> class performs managing Starling stage and 
+	 views automatic mediation. When view is added or removed from stage, it will
+	 automatically create or destroy its mediator.
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsIntegration.impl:StarlingViewMap:addStarlingView"><apiName>addStarlingView</apiName><shortdesc> 
+		 Add view to mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="starling.display:DisplayObject"/><apiDesc>View instance that needs to be mediated.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Add view to mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.impl:StarlingViewMap:init"><apiName>init</apiName><shortdesc>
+		 Initialize listeners on Starling views.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Initialize listeners on Starling views.
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.impl:StarlingViewMap:removeStarlingView"><apiName>removeStarlingView</apiName><shortdesc> 
+		 Remove view from mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="starling.display:DisplayObject"/><apiDesc>View instance that needs to remove mediation.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Remove view from mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="robotlegs.bender.extensions.sarsIntegration.impl:StarlingViewMap:mediatorMap"><apiName>mediatorMap</apiName><shortdesc> Map for mediating views.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="robotlegs.bender.extensions.mediatorMap.api:IMediatorMap"/></apiValueDef><apiDesc> Map for mediating views. </apiDesc></apiValueDetail></apiValue><apiValue id="robotlegs.bender.extensions.sarsIntegration.impl:StarlingViewMap:starlingCollection"><apiName>starlingCollection</apiName><shortdesc> Collection of Starling views which will receive display objects.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueClassifier>robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection</apiValueClassifier></apiValueDef><apiDesc> Collection of Starling views which will receive display objects. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="robotlegs.bender.extensions.sarsIntegration.impl:Away3DViewMap"><apiName>Away3DViewMap</apiName><shortdesc>
+	 The Away3DViewMap class performs managing Away3D scene and 
+	 views automatic mediation.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>robotlegs.bender.extensions.sarsIntegration.api:IAway3DViewMap</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <codeph>Away3DViewMap</codeph> class performs managing Away3D scene and 
+	 views automatic mediation. When view is added or removed from scene, it will
+	 automatically create or destroy its mediator.
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsIntegration.impl:Away3DViewMap:addAway3DView"><apiName>addAway3DView</apiName><shortdesc> 
+		 Add view to mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="any"/><apiDesc>View instance that needs to be mediated.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Add view to mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.impl:Away3DViewMap:init"><apiName>init</apiName><shortdesc>
+		 Initialize listeners on Away3D scene.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Initialize listeners on Away3D scene.
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsIntegration.impl:Away3DViewMap:removeAway3DView"><apiName>removeAway3DView</apiName><shortdesc> 
+		 Remove view from mediator map.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>view</apiItemName><apiType value="any"/><apiDesc>View instance that needs to remove mediation.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Remove view from mediator map.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="robotlegs.bender.extensions.sarsIntegration.impl:Away3DViewMap:mediatorMap"><apiName>mediatorMap</apiName><shortdesc> Map for mediating views.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="robotlegs.bender.extensions.mediatorMap.api:IMediatorMap"/></apiValueDef><apiDesc> Map for mediating views. </apiDesc></apiValueDetail></apiValue><apiValue id="robotlegs.bender.extensions.sarsIntegration.impl:Away3DViewMap:view3D"><apiName>view3D</apiName><shortdesc> Instance of View3D which contains scene receiving display objects.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="away3d.containers:View3D"/></apiValueDef><apiDesc> Instance of View3D which contains scene receiving display objects. </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

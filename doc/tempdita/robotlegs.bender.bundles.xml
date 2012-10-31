@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="robotlegs.bender.bundles"><apiName>robotlegs.bender.bundles</apiName><apiDetail/><apiClassifier id="robotlegs.bender.bundles:SARSBundle"><apiName>SARSBundle</apiName><shortdesc>
+	 The SARSBundle class will include all extensions which are required
+	 to create functioning SARS/MVCS application.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>robotlegs.bender.framework.api:IBundle</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <codeph>SARSBundle</codeph> class will include all extensions which are required
+	 to create functioning SARS/MVCS application.
+	 
+	 <p><i>Note: Extensions loaded by this bundle are in precise order since some
+	 extensions require injections which are mapped in other extensions.</i></p>
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.bundles:SARSBundle:extend"><apiName>extend</apiName><shortdesc> </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>context</apiItemName><apiType value="robotlegs.bender.framework.api:IContext"/></apiParam></apiOperationDef><apiDesc> </apiDesc></apiOperationDetail><apiInheritDoc/></apiOperation></apiClassifier></apiPackage>

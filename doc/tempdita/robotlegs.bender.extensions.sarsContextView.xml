@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="robotlegs.bender.extensions.sarsContextView"><apiName>robotlegs.bender.extensions.sarsContextView</apiName><apiDetail/><apiClassifier id="robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension"><apiName>SARSContextViewExtension</apiName><shortdesc>
+	 This Extension will map default context view to injector.
+	 </shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>robotlegs.bender.framework.api:IExtension</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 <p>This Extension will map default context view to injector.</p>
+	 </apiDesc></apiClassifierDetail><apiOperation id="robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension:extend"><apiName>extend</apiName><shortdesc> </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>context</apiItemName><apiType value="robotlegs.bender.framework.api:IContext"/></apiParam></apiOperationDef><apiDesc> </apiDesc></apiOperationDetail><apiInheritDoc/></apiOperation><apiOperation id="robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension:toString"><apiName>toString</apiName><shortdesc>
+		 Returns the string representation of the specified object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns the string representation of the specified object.
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier></apiPackage>
