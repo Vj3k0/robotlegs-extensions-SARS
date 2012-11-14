@@ -1,6 +1,7 @@
 package robotlegs.bender.bundles
 {
 import robotlegs.bender.extensions.commandCenter.CommandCenterExtension;
+import robotlegs.bender.extensions.contextView.ContextViewExtension;
 import robotlegs.bender.extensions.contextView.ContextViewListenerConfig;
 import robotlegs.bender.extensions.enhancedLogging.InjectableLoggerExtension;
 import robotlegs.bender.extensions.enhancedLogging.TraceLoggingExtension;
@@ -9,7 +10,6 @@ import robotlegs.bender.extensions.eventDispatcher.EventDispatcherExtension;
 import robotlegs.bender.extensions.localEventMap.LocalEventMapExtension;
 import robotlegs.bender.extensions.mediatorMap.MediatorMapExtension;
 import robotlegs.bender.extensions.modularity.ModularityExtension;
-import robotlegs.bender.extensions.sarsContextView.SARSContextViewExtension;
 import robotlegs.bender.extensions.sarsIntegration.SARSIntegrationExtension;
 import robotlegs.bender.extensions.sarsStageSync.SARSStageSyncExtension;
 import robotlegs.bender.extensions.signalCommandMap.SignalCommandMapExtension;
@@ -39,8 +39,9 @@ import robotlegs.bender.framework.api.IContext;
 			context.install(
 				TraceLoggingExtension,
 				InjectableLoggerExtension,
+                ContextViewExtension,
 				SARSIntegrationExtension,
-				SARSContextViewExtension,
+//				SARSContextViewExtension,
 				EventDispatcherExtension,
 				ModularityExtension,
 				CommandCenterExtension,
@@ -52,7 +53,7 @@ import robotlegs.bender.framework.api.IContext;
 				MediatorMapExtension,
 				SignalCommandMapExtension,
 				SARSStageSyncExtension);
-			
+
 			context.configure(ContextViewListenerConfig);
 		}
 	}

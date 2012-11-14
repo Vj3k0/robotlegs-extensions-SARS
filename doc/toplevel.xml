@@ -446,58 +446,17 @@
 </field>
 <classRec name='SARSBundle' fullname='robotlegs.bender.bundles:SARSBundle' sourcefile='/Users/vjeko/Documents/Work/Projects/Vj3k0/robotlegs-extensions-SARS/src/robotlegs/bender/bundles/SARSBundle.as' namespace='robotlegs.bender.bundles' access='public' baseclass='Object' interfaces='robotlegs.bender.framework.api:IBundle' isFinal='false' isDynamic='false' >
 <description><![CDATA[
-
 	 The <code>SARSBundle</code> class will include all extensions which are required
-
 	 to create functioning SARS/MVCS application.
-
 	 
-
 	 <p><i>Note: Extensions loaded by this bundle are in precise order since some
-
 	 extensions require injections which are mapped in other extensions.</i></p>
-
 	 ]]></description>
 </classRec>
 <method name='extend' fullname='robotlegs.bender.bundles:SARSBundle/extend' isStatic='false' isFinal='false' isOverride='false'  param_names='context' param_types='robotlegs.bender.framework.api:IContext' param_defaults='undefined' result_type='void'>
 <description><![CDATA[ ]]></description>
 <inheritDoc><![CDATA[]]></inheritDoc>
 </method>
-<classRec name='SARSContextViewExtension' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension' sourcefile='/Users/vjeko/Documents/Work/Projects/Vj3k0/robotlegs-extensions-SARS/src/robotlegs/bender/extensions/sarsContextView/SARSContextViewExtension.as' namespace='robotlegs.bender.extensions.sarsContextView' access='public' baseclass='Object' interfaces='robotlegs.bender.framework.api:IExtension' isFinal='false' isDynamic='false' >
-<description><![CDATA[
-	 <p>This Extension will map default context view to injector.</p>
-	 ]]></description>
-</classRec>
-<method name='extend' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/extend' isStatic='false' isFinal='false' isOverride='false'  param_names='context' param_types='robotlegs.bender.framework.api:IContext' param_defaults='undefined' result_type='void'>
-<description><![CDATA[ ]]></description>
-<inheritDoc><![CDATA[]]></inheritDoc>
-</method>
-<method name='handleContextView' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:handleContextView' isStatic='false' isFinal='false' isOverride='false'  param_names='view' param_types='flash.display:DisplayObjectContainer' param_defaults='undefined' result_type='void'>
-<description><![CDATA[
-		 Map default context view.
-		 
-		 <p>Since <code>View3D</code> is based on <code>DisplayObjectContainer</code> it
-		 will also try to initialize as context view, but since it is handled differently
-		 as part of SARS, it is set to be ignored.</p>
-		 
-		 ]]></description>
-<param><![CDATA[view View being set as context view.
-		 ]]></param>
-</method>
-<method name='toString' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/toString' isStatic='false' isFinal='false' isOverride='false'  result_type='String'>
-<description><![CDATA[
-		 Returns the string representation of the specified object.
-		 ]]></description>
-</method>
-<field name='_injector' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:_injector' type='org.swiftsuspenders:Injector' isStatic='false' isConst='false' >
-<description><![CDATA[ Injector used in context. ]]></description>
-</field>
-<field name='_logger' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:_logger' type='robotlegs.bender.framework.api:ILogger' isStatic='false' isConst='false' >
-<description><![CDATA[ Logger used to log messaged when using this extension. ]]></description>
-</field>
-<field name='_uid' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:_uid' type='String' isStatic='false' isConst='true' defaultValue='unknown' >
-<description><![CDATA[ Extension UID. ]]></description>
-</field>
 <classRec name='SARSStageSyncExtension' fullname='robotlegs.bender.extensions.sarsStageSync:SARSStageSyncExtension' sourcefile='/Users/vjeko/Documents/Work/Projects/Vj3k0/robotlegs-extensions-SARS/src/robotlegs/bender/extensions/sarsStageSync/SARSStageSyncExtension.as' namespace='robotlegs.bender.extensions.sarsStageSync' access='public' baseclass='Object' interfaces='robotlegs.bender.framework.api:IExtension' isFinal='false' isDynamic='false' >
 <description><![CDATA[
 	 <p>This Extension waits for a DisplayObjectContainer to be added as a configuration,
@@ -511,7 +470,7 @@
 <description><![CDATA[ ]]></description>
 <inheritDoc><![CDATA[]]></inheritDoc>
 </method>
-<method name='handleContextView' fullname='robotlegs.bender.extensions.sarsStageSync:SARSStageSyncExtension/private:handleContextView' isStatic='false' isFinal='false' isOverride='false'  param_names='view' param_types='flash.display:DisplayObjectContainer' param_defaults='undefined' result_type='void'>
+<method name='handleContextView' fullname='robotlegs.bender.extensions.sarsStageSync:SARSStageSyncExtension/private:handleContextView' isStatic='false' isFinal='false' isOverride='false'  param_names='contextView' param_types='robotlegs.bender.extensions.contextView:ContextView' param_defaults='undefined' result_type='void'>
 <description><![CDATA[
 		 Initialize context view. 
 		 
@@ -591,6 +550,41 @@
 <description><![CDATA[ Collection of Starling view instances. ]]></description>
 </field>
 <field name='_uid' fullname='robotlegs.bender.extensions.sarsStageSync:SARSStageSyncExtension/private:_uid' type='String' isStatic='false' isConst='true' defaultValue='unknown' >
+<description><![CDATA[ Extension UID. ]]></description>
+</field>
+<classRec name='SARSContextViewExtension' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension' sourcefile='/Users/vjeko/Documents/Work/Projects/Vj3k0/robotlegs-extensions-SARS/src/robotlegs/bender/extensions/sarsContextView/SARSContextViewExtension.as' namespace='robotlegs.bender.extensions.sarsContextView' access='public' baseclass='Object' interfaces='robotlegs.bender.framework.api:IExtension' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+	 <p>This Extension will map default context view to injector.</p>
+	 ]]></description>
+</classRec>
+<method name='extend' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/extend' isStatic='false' isFinal='false' isOverride='false'  param_names='context' param_types='robotlegs.bender.framework.api:IContext' param_defaults='undefined' result_type='void'>
+<description><![CDATA[ ]]></description>
+<inheritDoc><![CDATA[]]></inheritDoc>
+</method>
+<method name='handleContextView' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:handleContextView' isStatic='false' isFinal='false' isOverride='false'  param_names='view' param_types='flash.display:DisplayObjectContainer' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+		 Map default context view.
+		 
+		 <p>Since <code>View3D</code> is based on <code>DisplayObjectContainer</code> it
+		 will also try to initialize as context view, but since it is handled differently
+		 as part of SARS, it is set to be ignored.</p>
+		 
+		 ]]></description>
+<param><![CDATA[view View being set as context view.
+		 ]]></param>
+</method>
+<method name='toString' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/toString' isStatic='false' isFinal='false' isOverride='false'  result_type='String'>
+<description><![CDATA[
+		 Returns the string representation of the specified object.
+		 ]]></description>
+</method>
+<field name='_injector' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:_injector' type='org.swiftsuspenders:Injector' isStatic='false' isConst='false' >
+<description><![CDATA[ Injector used in context. ]]></description>
+</field>
+<field name='_logger' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:_logger' type='robotlegs.bender.framework.api:ILogger' isStatic='false' isConst='false' >
+<description><![CDATA[ Logger used to log messaged when using this extension. ]]></description>
+</field>
+<field name='_uid' fullname='robotlegs.bender.extensions.sarsContextView:SARSContextViewExtension/private:_uid' type='String' isStatic='false' isConst='true' defaultValue='unknown' >
 <description><![CDATA[ Extension UID. ]]></description>
 </field>
 <classRec name='SARSIntegrationExtension' fullname='robotlegs.bender.extensions.sarsIntegration:SARSIntegrationExtension' sourcefile='/Users/vjeko/Documents/Work/Projects/Vj3k0/robotlegs-extensions-SARS/src/robotlegs/bender/extensions/sarsIntegration/SARSIntegrationExtension.as' namespace='robotlegs.bender.extensions.sarsIntegration' access='public' baseclass='Object' interfaces='robotlegs.bender.framework.api:IExtension' isFinal='false' isDynamic='false' >

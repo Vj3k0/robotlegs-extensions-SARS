@@ -13,8 +13,10 @@ package robotlegs.bender.extensions.sarsStageSync
 	import flash.events.Event;
 	
 	import org.hamcrest.object.instanceOf;
-	
-	import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
+
+import robotlegs.bender.extensions.contextView.ContextView;
+
+import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.IExtension;
 	import robotlegs.bender.framework.api.ILogger;
@@ -69,7 +71,7 @@ package robotlegs.bender.extensions.sarsStageSync
 			_context = context;
 			_logger = context.getLogger(this);
 			_context.addConfigHandler(
-				instanceOf(flash.display.DisplayObjectContainer),
+				instanceOf(ContextView),
 				handleContextView);
 			_context.addConfigHandler(
 				instanceOf(StarlingCollection),
@@ -93,18 +95,14 @@ package robotlegs.bender.extensions.sarsStageSync
 		 * 
 		 * @param view View being set as context view.
 		 */		
-		private function handleContextView(view:flash.display.DisplayObjectContainer):void
+		private function handleContextView(contextView:ContextView):void
 		{
-			// ignore Away3D view
-			if (view is View3D)
-				return;
-			
 			if (_contextView)
 			{
-				_logger.warn('A contextView has already been set, ignoring {0}', [view]);
+				_logger.warn('A contextView has already been set, ignoring {0}', [contextView.view]);
 				return;
 			}
-			_contextView = view;
+			_contextView = contextView.view;
 			if (_contextView.stage)
 			{
 				_contextReady = true;
