@@ -7,3 +7,10 @@ bin-release/
 .flexProperties
 .settings/
 .project
+
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+atlassian-ide-plugin.xml

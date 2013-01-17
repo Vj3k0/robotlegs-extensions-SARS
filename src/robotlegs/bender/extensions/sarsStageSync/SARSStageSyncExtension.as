@@ -93,7 +93,7 @@ import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
 		/**
 		 * Initialize context view. 
 		 * 
-		 * @param view View being set as context view.
+		 * @param contextView View being set as context view.
 		 */		
 		private function handleContextView(contextView:ContextView):void
 		{
@@ -139,7 +139,7 @@ import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
 		{
 			_logger.debug("Context view has left the stage. Destroying context...");
 			_contextView.removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, onRemovedFromStage);
-			_context.lifecycle.destroy();
+			_context.destroy();
 		}
 		
 		//---------------------------------------------------------------
@@ -216,7 +216,7 @@ import robotlegs.bender.extensions.sarsIntegration.api.StarlingCollection;
 				return;
 			
 			_logger.debug("Default and Starling context views are now on stage. Initializing context...");
-			_context.lifecycle.initialize();
+			_context.initialize();
 		}
 
 	}

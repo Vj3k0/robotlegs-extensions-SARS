@@ -475,7 +475,7 @@
 		 Initialize context view. 
 		 
 		 ]]></description>
-<param><![CDATA[view View being set as context view.
+<param><![CDATA[contextView View being set as context view.
 		 ]]></param>
 </method>
 <method name='handleStarlingCollection' fullname='robotlegs.bender.extensions.sarsStageSync:SARSStageSyncExtension/private:handleStarlingCollection' isStatic='false' isFinal='false' isOverride='false'  param_names='collection' param_types='robotlegs.bender.extensions.sarsIntegration.api:StarlingCollection' param_defaults='undefined' result_type='void'>
